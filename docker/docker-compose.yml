@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ../back_end_service:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+  db:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: sudoTeam8
+      MONGO_INITDB_ROOT_PASSWORD: SAPgSf64yS9UUkq5kZ3sE8p
+    ports:
+      - "27017:27017"
+    command: bash -c "apt-get update && apt-get install -y mongodb-clients && mongod --bind_ip_all"
+
+  redis:
+    image: "redis:alpine"
+
+  celery:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    command: celery -A back_end_service worker --loglevel=info
+    volumes:
+      - ../back_end_service:/app
+    depends_on:
+      - redis
+      - db
