@@ -1,0 +1,681 @@
+[
+  {
+    "id": 1,
+    "name": "Samsung Galaxy S23 Ultra",
+    "brand": "Samsung",
+    "price": 24721909,
+    "description": "Điện thoại Samsung Galaxy S23 Ultra - Phiên bản mới nhất từ Samsung",
+    "specifications": {
+      "Màn hình": "AMOLED 6.7 inch",
+      "CPU": "Dimensity 9200",
+      "RAM": "12GB",
+      "Bộ nhớ": "256GB",
+      "Pin": "5000 mAh",
+      "Camera": "108MP + 12MP + 10MP"
+    },
+    "promotions": [
+      "Giảm 16% khi thanh toán qua ví điện tử"
+    ],
+    "reviews": [
+      {
+        "content": "Đã dùng nửa năm, đáng tiền. Pin tốt đáng mua.",
+        "rating": 5,
+        "date": "2024-09-22"
+      },
+      {
+        "content": "Nhìn chung Màn hình đẹp cao cấp. Nên mua về sử dụng",
+        "rating": 4,
+        "date": "2024-09-09"
+      },
+      {
+        "content": "Đã dùng 3 tháng, đáng tiền. Màn hình hiển thị tốt rất hài lòng.",
+        "rating": 5,
+        "date": "2024-09-04"
+      },
+      {
+        "content": "Sản phẩm xuất sắc. Camera rất tốt phù hợp nhu cầu. Recommend cho mọi người",
+        "rating": 5,
+        "date": "2024-07-30"
+      },
+      {
+        "content": "Theo đánh giá của tôi Màn hình sắc nét cao cấp. ",
+        "rating": 5,
+        "date": "2024-10-03"
+      },
+      {
+        "content": "Đã dùng 2 tháng, đáng tiền. Pin trâu đáng mua.",
+        "rating": 4,
+        "date": "2024-10-20"
+      },
+      {
+        "content": "Đã dùng 1 tháng, rất tốt. Pin đủ dùng rất hài lòng.",
+        "rating": 4,
+        "date": "2024-08-06"
+      },
+      {
+        "content": "Sản phẩm rất tốt. Màn hình có độ tương phản cao đáng mua. Recommend cho mọi người",
+        "rating": 5,
+        "date": "2024-09-15"
+      },
+      {
+        "content": "Đã dùng 2 tháng, cao cấp. Màn hình hiển thị tốt giá cả hợp lý.",
+        "rating": 5,
+        "date": "2024-08-01"
+      },
+      {
+        "content": "Sản phẩm cao cấp. Màn hình hiển thị tốt rất hài lòng. ",
+        "rating": 5,
+        "date": "2024-08-28"
+      },
+      {
+        "content": "Đánh giá sau khi dùng Pin dùng được lâu xuất sắc. ",
+        "rating": 5,
+        "date": "2024-09-20"
+      },
+      {
+        "content": "Đánh giá sau khi dùng Màn hình có độ tương phản cao rất tốt. ",
+        "rating": 4,
+        "date": "2024-10-10"
+      }
+    ],
+    "warranty_info": "Bảo hành chính hãng 12 tháng tại trung tâm bảo hành toàn quốc",
+    "category": "Điện thoại",
+    "in_stock": true,
+    "created_at": "2024-10-28 15:10:38"
+  },
+  {
+    "id": 2,
+    "name": "iPhone 14 Pro Max",
+    "brand": "Apple",
+    "price": 28832027,
+    "description": "Điện thoại iPhone 14 Pro Max - Phiên bản mới nhất từ Apple",
+    "specifications": {
+      "Màn hình": "AMOLED 6.7 inch",
+      "CPU": "Snapdragon 8 Gen 2",
+      "RAM": "12GB",
+      "Bộ nhớ": "512GB",
+      "Pin": "4800 mAh",
+      "Camera": "50MP + 48MP + 12MP"
+    },
+    "promotions": [
+      "Giảm 20% khi thanh toán qua ví điện tử"
+    ],
+    "reviews": [
+      {
+        "content": "Đã dùng 1 tháng, cao cấp. Pin đủ dùng đáng mua.",
+        "rating": 4,
+        "date": "2024-09-15"
+      },
+      {
+        "content": "Sản phẩm đáng tiền. Màn hình sắc nét giá cả hợp lý. Recommend cho mọi người",
+        "rating": 4,
+        "date": "2024-09-24"
+      },
+      {
+        "content": "Đánh giá sau khi dùng Camera chụp đẹp đáng tiền. ",
+        "rating": 5,
+        "date": "2024-10-06"
+      },
+      {
+        "content": "Sản phẩm rất tốt. Pin dùng được lâu rất hài lòng. ",
+        "rating": 5,
+        "date": "2024-10-15"
+      },
+      {
+        "content": "Sản phẩm xuất sắc. Pin đủ dùng phù hợp nhu cầu. Sẽ giới thiệu cho bạn bè",
+        "rating": 4,
+        "date": "2024-09-29"
+      },
+      {
+        "content": "Sản phẩm xuất sắc. Pin dùng được lâu đáng mua. ",
+        "rating": 4,
+        "date": "2024-10-06"
+      },
+      {
+        "content": "Đã dùng nửa năm, rất tốt. Camera chụp đẹp giá cả hợp lý.",
+        "rating": 5,
+        "date": "2024-10-23"
+      },
+      {
+        "content": "Đánh giá sau khi dùng Camera chụp đẹp đáng tiền. Recommend cho mọi người",
+        "rating": 4,
+        "date": "2024-09-26"
+      },
+      {
+        "content": "Đã dùng 3 tháng, rất tốt. Màn hình hiển thị tốt đáng mua.",
+        "rating": 5,
+        "date": "2024-09-20"
+      },
+      {
+        "content": "Sản phẩm đáng tiền. Màn hình hiển thị tốt giá cả hợp lý. Recommend cho mọi người",
+        "rating": 5,
+        "date": "2024-10-03"
+      },
+      {
+        "content": "Đánh giá sau khi dùng Pin trâu rất tốt. ",
+        "rating": 5,
+        "date": "2024-08-26"
+      },
+      {
+        "content": "Đánh giá sau khi dùng Màn hình đẹp rất tốt. Recommend cho mọi người",
+        "rating": 4,
+        "date": "2024-08-21"
+      }
+    ],
+    "warranty_info": "Bảo hành chính hãng 12 tháng tại trung tâm bảo hành toàn quốc",
+    "category": "Điện thoại",
+    "in_stock": true,
+    "created_at": "2024-10-28 15:10:38"
+  },
+  {
+    "id": 3,
+    "name": "Xiaomi 13 Pro",
+    "brand": "Xiaomi",
+    "price": 24959406,
+    "description": "Điện thoại Xiaomi 13 Pro - Phiên bản mới nhất từ Xiaomi",
+    "specifications": {
+      "Màn hình": "AMOLED 6.7 inch",
+      "CPU": "Dimensity 9200",
+      "RAM": "8GB",
+      "Bộ nhớ": "256GB",
+      "Pin": "4800 mAh",
+      "Camera": "50MP + 48MP + 12MP"
+    },
+    "promotions": [
+      "Giảm 8% khi thanh toán qua ví điện tử",
+      "Tặng kèm ốp lưng chính hãng"
+    ],
+    "reviews": [
+      {
+        "content": "Sản phẩm cao cấp. Pin trâu rất hài lòng. ",
+        "rating": 5,
+        "date": "2024-08-27"
+      },
+      {
+        "content": "Sản phẩm xuất sắc. Màn hình có độ tương phản cao phù hợp nhu cầu. Sẽ giới thiệu cho bạn bè",
+        "rating": 5,
+        "date": "2024-08-16"
+      },
+      {
+        "content": "Sản phẩm xuất sắc. Camera chụp đẹp phù hợp nhu cầu. Recommend cho mọi người",
+        "rating": 4,
+        "date": "2024-08-06"
+      },
+      {
+        "content": "Sản phẩm xuất sắc. Pin đủ dùng rất hài lòng. Nên mua về sử dụng",
+        "rating": 5,
+        "date": "2024-08-23"
+      },
+      {
+        "content": "Sản phẩm đáng tiền. Camera ổn phù hợp nhu cầu. Sẽ giới thiệu cho bạn bè",
+        "rating": 4,
+        "date": "2024-08-04"
+      },
+      {
+        "content": "Nhìn chung Pin tốt đáng tiền. ",
+        "rating": 5,
+        "date": "2024-09-02"
+      },
+      {
+        "content": "Đã dùng nửa năm, xuất sắc. Pin trâu đáng mua.",
+        "rating": 5,
+        "date": "2024-10-09"
+      },
+      {
+        "content": "Sản phẩm đáng tiền. Màn hình sắc nét rất hài lòng. ",
+        "rating": 5,
+        "date": "2024-09-11"
+      },
+      {
+        "content": "Sản phẩm xuất sắc. Pin đủ dùng đáng mua. ",
+        "rating": 5,
+        "date": "2024-08-16"
+      }
+    ],
+    "warranty_info": "Bảo hành chính hãng 12 tháng tại trung tâm bảo hành toàn quốc",
+    "category": "Điện thoại",
+    "in_stock": false,
+    "created_at": "2024-10-28 15:10:38"
+  },
+  {
+    "id": 4,
+    "name": "Samsung Galaxy A54",
+    "brand": "Samsung",
+    "price": 10225191,
+    "description": "Điện thoại Samsung Galaxy A54 - Phiên bản mới nhất từ Samsung",
+    "specifications": {
+      "Màn hình": "AMOLED 6.4 inch",
+      "CPU": "Dimensity 8200",
+      "RAM": "8GB",
+      "Bộ nhớ": "128GB",
+      "Pin": "4500 mAh",
+      "Camera": "50MP + 8MP + 2MP"
+    },
+    "promotions": [
+      "Giảm 16% khi thanh toán qua ví điện tử"
+    ],
+    "reviews": [
+      {
+        "content": "Đã dùng 1 tháng, đáng mua. Camera chụp nét giá cả hợp lý.",
+        "rating": 3,
+        "date": "2024-10-25"
+      },
+      {
+        "content": "Theo đánh giá của tôi Pin đủ dùng khá tốt. Nên mua về sử dụng",
+        "rating": 5,
+        "date": "2024-08-25"
+      },
+      {
+        "content": "Đã dùng 2 tháng, tốt. Pin đủ dùng rất hài lòng.",
+        "rating": 4,
+        "date": "2024-09-08"
+      },
+      {
+        "content": "Đã dùng 2 tháng, ổn định. Pin tốt phù hợp nhu cầu.",
+        "rating": 4,
+        "date": "2024-07-31"
+      },
+      {
+        "content": "Tổng thể Pin dùng được lâu đáng mua. ",
+        "rating": 5,
+        "date": "2024-08-15"
+      },
+      {
+        "content": "Tổng thể Camera chụp nét ổn định. Nên mua về sử dụng",
+        "rating": 4,
+        "date": "2024-08-02"
+      },
+      {
+        "content": "Sản phẩm khá tốt. Pin dùng được lâu đáng mua. Recommend cho mọi người",
+        "rating": 5,
+        "date": "2024-09-12"
+      },
+      {
+        "content": "Đã dùng 1 tháng, ổn định. Camera rất tốt giá cả hợp lý.",
+        "rating": 3,
+        "date": "2024-09-04"
+      },
+      {
+        "content": "Đã dùng nửa năm, đáng mua. Màn hình đẹp đáng mua.",
+        "rating": 5,
+        "date": "2024-09-26"
+      },
+      {
+        "content": "Sản phẩm đáng mua. Pin trâu rất hài lòng. ",
+        "rating": 5,
+        "date": "2024-09-27"
+      },
+      {
+        "content": "Sản phẩm khá tốt. Camera chụp nét phù hợp nhu cầu. Nên mua về sử dụng",
+        "rating": 5,
+        "date": "2024-10-19"
+      }
+    ],
+    "warranty_info": "Bảo hành chính hãng 12 tháng tại trung tâm bảo hành toàn quốc",
+    "category": "Điện thoại",
+    "in_stock": true,
+    "created_at": "2024-10-28 15:10:38"
+  },
+  {
+    "id": 5,
+    "name": "Redmi Note 12 Pro",
+    "brand": "Xiaomi",
+    "price": 8217907,
+    "description": "Điện thoại Redmi Note 12 Pro - Phiên bản mới nhất từ Xiaomi",
+    "specifications": {
+      "Màn hình": "IPS 6.6 inch",
+      "CPU": "Snapdragon 7 Gen 1",
+      "RAM": "8GB",
+      "Bộ nhớ": "128GB",
+      "Pin": "4500 mAh",
+      "Camera": "64MP + 8MP + 2MP"
+    },
+    "promotions": [
+      "Giảm 15% khi thanh toán qua ví điện tử",
+      "Tặng kèm ốp lưng chính hãng"
+    ],
+    "reviews": [
+      {
+        "content": "Nhìn chung Màn hình có độ tương phản cao khá tốt. ",
+        "rating": 5,
+        "date": "2024-08-24"
+      },
+      {
+        "content": "Sản phẩm khá tốt. Pin trâu giá cả hợp lý. ",
+        "rating": 4,
+        "date": "2024-08-05"
+      },
+      {
+        "content": "Đánh giá sau khi dùng Màn hình hiển thị tốt đáng mua. Recommend cho mọi người",
+        "rating": 3,
+        "date": "2024-09-25"
+      },
+      {
+        "content": "Đã dùng 3 tháng, ổn định. Màn hình có độ tương phản cao giá cả hợp lý.",
+        "rating": 5,
+        "date": "2024-10-16"
+      },
+      {
+        "content": "Đã dùng nửa năm, đáng mua. Pin trâu giá cả hợp lý.",
+        "rating": 4,
+        "date": "2024-07-30"
+      },
+      {
+        "content": "Nhìn chung Màn hình có độ tương phản cao ổn định. Recommend cho mọi người",
+        "rating": 3,
+        "date": "2024-08-23"
+      },
+      {
+        "content": "Đã dùng 2 tháng, đáng mua. Màn hình sắc nét rất hài lòng.",
+        "rating": 3,
+        "date": "2024-09-17"
+      }
+    ],
+    "warranty_info": "Bảo hành chính hãng 12 tháng tại trung tâm bảo hành toàn quốc",
+    "category": "Điện thoại",
+    "in_stock": true,
+    "created_at": "2024-10-28 15:10:38"
+  },
+  {
+    "id": 6,
+    "name": "OPPO Reno8 T",
+    "brand": "OPPO",
+    "price": 8107297,
+    "description": "Điện thoại OPPO Reno8 T - Phiên bản mới nhất từ OPPO",
+    "specifications": {
+      "Màn hình": "AMOLED 6.4 inch",
+      "CPU": "Helio G96",
+      "RAM": "6GB",
+      "Bộ nhớ": "256GB",
+      "Pin": "5000 mAh",
+      "Camera": "50MP + 8MP + 2MP"
+    },
+    "promotions": [
+      "Tặng kèm ốp lưng chính hãng"
+    ],
+    "reviews": [
+      {
+        "content": "Theo đánh giá của tôi Pin trâu tốt. ",
+        "rating": 4,
+        "date": "2024-09-30"
+      },
+      {
+        "content": "Đã dùng 1 tháng, đáng mua. Màn hình hiển thị tốt rất hài lòng.",
+        "rating": 3,
+        "date": "2024-07-30"
+      },
+      {
+        "content": "Sản phẩm đáng mua. Pin đủ dùng rất hài lòng. ",
+        "rating": 4,
+        "date": "2024-08-26"
+      },
+      {
+        "content": "Sản phẩm đáng mua. Pin dùng được lâu giá cả hợp lý. Nên mua về sử dụng",
+        "rating": 4,
+        "date": "2024-08-09"
+      },
+      {
+        "content": "Sản phẩm khá tốt. Camera rất tốt giá cả hợp lý. ",
+        "rating": 3,
+        "date": "2024-09-17"
+      }
+    ],
+    "warranty_info": "Bảo hành chính hãng 12 tháng tại trung tâm bảo hành toàn quốc",
+    "category": "Điện thoại",
+    "in_stock": true,
+    "created_at": "2024-10-28 15:10:38"
+  },
+  {
+    "id": 7,
+    "name": "Samsung Galaxy A24",
+    "brand": "Samsung",
+    "price": 6288725,
+    "description": "Điện thoại Samsung Galaxy A24 - Phiên bản mới nhất từ Samsung",
+    "specifications": {
+      "Màn hình": "IPS 6.5 inch",
+      "CPU": "Snapdragon 680",
+      "RAM": "4GB",
+      "Bộ nhớ": "128GB",
+      "Pin": "5000 mAh",
+      "Camera": "48MP + 2MP + 2MP"
+    },
+    "promotions": [
+      "Tặng kèm ốp lưng chính hãng"
+    ],
+    "reviews": [
+      {
+        "content": "Theo đánh giá của tôi Camera rất tốt basic. Recommend cho mọi người",
+        "rating": 4,
+        "date": "2024-09-17"
+      },
+      {
+        "content": "Theo đánh giá của tôi Camera rất tốt phù hợp giá tiền. Nên mua về sử dụng",
+        "rating": 5,
+        "date": "2024-08-30"
+      },
+      {
+        "content": "Sản phẩm basic. Màn hình sắc nét giá cả hợp lý. Recommend cho mọi người",
+        "rating": 4,
+        "date": "2024-10-22"
+      },
+      {
+        "content": "Tổng thể Pin đủ dùng ổn. Nên mua về sử dụng",
+        "rating": 5,
+        "date": "2024-08-04"
+      },
+      {
+        "content": "Đã dùng 2 tháng, phù hợp giá tiền. Camera rất tốt giá cả hợp lý.",
+        "rating": 5,
+        "date": "2024-09-10"
+      },
+      {
+        "content": "Tổng thể Màn hình có độ tương phản cao basic. ",
+        "rating": 3,
+        "date": "2024-09-11"
+      },
+      {
+        "content": "Đã dùng 1 tháng, ổn. Pin trâu đáng mua.",
+        "rating": 3,
+        "date": "2024-09-17"
+      },
+      {
+        "content": "Đã dùng nửa năm, basic. Camera rất tốt đáng mua.",
+        "rating": 3,
+        "date": "2024-08-13"
+      },
+      {
+        "content": "Sản phẩm phù hợp giá tiền. Pin trâu rất hài lòng. ",
+        "rating": 4,
+        "date": "2024-10-01"
+      },
+      {
+        "content": "Nhìn chung Camera chụp đẹp phù hợp giá tiền. ",
+        "rating": 3,
+        "date": "2024-10-12"
+      }
+    ],
+    "warranty_info": "Bảo hành chính hãng 12 tháng tại trung tâm bảo hành toàn quốc",
+    "category": "Điện thoại",
+    "in_stock": false,
+    "created_at": "2024-10-28 15:10:38"
+  },
+  {
+    "id": 8,
+    "name": "Redmi 12C",
+    "brand": "Xiaomi",
+    "price": 3184176,
+    "description": "Điện thoại Redmi 12C - Phiên bản mới nhất từ Xiaomi",
+    "specifications": {
+      "Màn hình": "TFT 6.5 inch",
+      "CPU": "Helio G85",
+      "RAM": "4GB",
+      "Bộ nhớ": "128GB",
+      "Pin": "5000 mAh",
+      "Camera": "48MP + 2MP + 2MP"
+    },
+    "promotions": [
+      "Tặng kèm ốp lưng chính hãng"
+    ],
+    "reviews": [
+      {
+        "content": "Theo đánh giá của tôi Pin trâu phù hợp giá tiền. Recommend cho mọi người",
+        "rating": 5,
+        "date": "2024-10-27"
+      },
+      {
+        "content": "Tổng thể Camera rất tốt basic. Sẽ giới thiệu cho bạn bè",
+        "rating": 4,
+        "date": "2024-09-05"
+      },
+      {
+        "content": "Đánh giá sau khi dùng Camera chụp đẹp tạm được. ",
+        "rating": 4,
+        "date": "2024-08-18"
+      },
+      {
+        "content": "Đã dùng 3 tháng, basic. Camera chụp nét đáng mua.",
+        "rating": 4,
+        "date": "2024-07-30"
+      },
+      {
+        "content": "Đã dùng 1 tháng, phù hợp giá tiền. Pin trâu rất hài lòng.",
+        "rating": 3,
+        "date": "2024-08-17"
+      },
+      {
+        "content": "Đã dùng 3 tháng, tạm được. Camera chụp đẹp đáng mua.",
+        "rating": 3,
+        "date": "2024-08-12"
+      },
+      {
+        "content": "Đã dùng 1 tháng, basic. Pin đủ dùng rất hài lòng.",
+        "rating": 4,
+        "date": "2024-10-14"
+      },
+      {
+        "content": "Sản phẩm ổn. Camera chụp đẹp đáng mua. Recommend cho mọi người",
+        "rating": 4,
+        "date": "2024-10-27"
+      },
+      {
+        "content": "Đã dùng 3 tháng, ổn. Pin dùng được lâu rất hài lòng.",
+        "rating": 5,
+        "date": "2024-08-05"
+      },
+      {
+        "content": "Đã dùng 2 tháng, basic. Pin trâu rất hài lòng.",
+        "rating": 4,
+        "date": "2024-09-17"
+      },
+      {
+        "content": "Theo đánh giá của tôi Camera chụp nét basic. ",
+        "rating": 5,
+        "date": "2024-08-07"
+      },
+      {
+        "content": "Đã dùng 3 tháng, basic. Màn hình có độ tương phản cao đáng mua.",
+        "rating": 4,
+        "date": "2024-09-04"
+      },
+      {
+        "content": "Nhìn chung Camera chụp đẹp phù hợp giá tiền. ",
+        "rating": 4,
+        "date": "2024-10-08"
+      },
+      {
+        "content": "Đã dùng 2 tháng, phù hợp giá tiền. Camera chụp đẹp giá cả hợp lý.",
+        "rating": 3,
+        "date": "2024-10-10"
+      },
+      {
+        "content": "Sản phẩm basic. Pin tốt phù hợp nhu cầu. ",
+        "rating": 4,
+        "date": "2024-10-06"
+      }
+    ],
+    "warranty_info": "Bảo hành chính hãng 12 tháng tại trung tâm bảo hành toàn quốc",
+    "category": "Điện thoại",
+    "in_stock": true,
+    "created_at": "2024-10-28 15:10:38"
+  },
+  {
+    "id": 9,
+    "name": "OPPO A57",
+    "brand": "OPPO",
+    "price": 4161712,
+    "description": "Điện thoại OPPO A57 - Phiên bản mới nhất từ OPPO",
+    "specifications": {
+      "Màn hình": "TFT 6.5 inch",
+      "CPU": "Snapdragon 680",
+      "RAM": "6GB",
+      "Bộ nhớ": "128GB",
+      "Pin": "5000 mAh",
+      "Camera": "50MP + 2MP + 2MP"
+    },
+    "promotions": [
+      "Giảm 15% khi thanh toán qua ví điện tử",
+      "Tặng kèm ốp lưng chính hãng"
+    ],
+    "reviews": [
+      {
+        "content": "Đã dùng nửa năm, ổn. Pin dùng được lâu giá cả hợp lý.",
+        "rating": 4,
+        "date": "2024-10-15"
+      },
+      {
+        "content": "Đánh giá sau khi dùng Pin đủ dùng phù hợp giá tiền. Nên mua về sử dụng",
+        "rating": 5,
+        "date": "2024-08-30"
+      },
+      {
+        "content": "Nhìn chung Màn hình có độ tương phản cao phù hợp giá tiền. Sẽ giới thiệu cho bạn bè",
+        "rating": 4,
+        "date": "2024-08-11"
+      },
+      {
+        "content": "Đánh giá sau khi dùng Pin tốt tạm được. Sẽ giới thiệu cho bạn bè",
+        "rating": 3,
+        "date": "2024-10-19"
+      },
+      {
+        "content": "Tổng thể Pin đủ dùng ổn. ",
+        "rating": 4,
+        "date": "2024-08-03"
+      },
+      {
+        "content": "Đã dùng 1 tháng, ổn. Camera chụp nét giá cả hợp lý.",
+        "rating": 5,
+        "date": "2024-08-25"
+      },
+      {
+        "content": "Nhìn chung Pin dùng được lâu ổn. ",
+        "rating": 4,
+        "date": "2024-09-08"
+      },
+      {
+        "content": "Đã dùng 3 tháng, phù hợp giá tiền. Màn hình hiển thị tốt đáng mua.",
+        "rating": 3,
+        "date": "2024-08-19"
+      },
+      {
+        "content": "Đã dùng 3 tháng, ổn. Camera ổn phù hợp nhu cầu.",
+        "rating": 4,
+        "date": "2024-10-18"
+      },
+      {
+        "content": "Đánh giá sau khi dùng Camera chụp đẹp basic. ",
+        "rating": 3,
+        "date": "2024-10-04"
+      },
+      {
+        "content": "Sản phẩm basic. Camera ổn đáng mua. ",
+        "rating": 4,
+        "date": "2024-10-08"
+      }
+    ],
+    "warranty_info": "Bảo hành chính hãng 12 tháng tại trung tâm bảo hành toàn quốc",
+    "category": "Điện thoại",
+    "in_stock": true,
+    "created_at": "2024-10-28 15:10:38"
+  }
+]
