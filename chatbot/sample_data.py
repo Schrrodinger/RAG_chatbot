@@ -146,7 +146,7 @@ if __name__ == "__main__":
     products = generate_sample_products()
 
     # Save to JSON file
-    with open('nlp-model/sample_products.json', 'w', encoding='utf-8') as f:
+    with open('nlp_model/sample_products.json', 'w', encoding='utf-8') as f:
         json.dump(products, f, ensure_ascii=False, indent=2)
 
     print(f"Generated {len(products)} sample products")
