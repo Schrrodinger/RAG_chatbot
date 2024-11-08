@@ -154,11 +154,47 @@ class ResponseGenerator:
             logger.error(f"Error finding similar documents: {str(e)}")
             return []
 
-    def generate_response(self,query, relevant_products):
-        if not relevant_products:
-            return "Xin lỗi, chúng tôi không tìm thấy sản phẩm phù hợp với tìm kiếm của bạn"
-        response = f"Dựa vào '{query}', đây là những sản phẩm phù hợp: \n"
-        for product in relevant_products:
-            response += f"{product['name']} - {product['description']}\n"
+    def generate_response(self, query, relevant_products, conversation_history=None):
+        """Generate response based on the query and relevant products."""
+        try:
+            if not relevant_products:
+                return "Xin lỗi, chúng tôi không tìm thấy sản phẩm phù hợp với tìm kiếm của bạn"
 
-        return response
+            # Build the response
+            response = []
+
+            # Add query context
+            if "so sánh" in query.lower() or "vs" in query.lower():
+                response.append(f"Đây là so sánh giữa các sản phẩm bạn quan tâm:")
+            else:
+                response.append(f"Dựa vào tìm kiếm '{query}', đây là các sản phẩm phù hợp:")
+
+            # Add product information
+            for product in relevant_products:
+                product_info = []
+                product_info.append(f"\n• {product['name']}")
+                if 'price' in product:
+                    product_info.append(f"  - Giá: {self.format_price(product['price'])}đ")
+                if 'specifications' in product:
+                    specs = product['specifications']
+                    product_info.append("  - Thông số kỹ thuật chính:")
+                    for key, value in specs.items():
+                        product_info.append(f"    + {key}: {value}")
+                if 'promotions' in product and product['promotions']:
+                    product_info.append("  - Khuyến mãi:")
+                    for promo in product['promotions']:
+                        product_info.append(f"    + {promo}")
+
+            # Join all parts of the response
+            final_response = "\n".join(response + product_info)
+
+            return final_response
+
+        except Exception as e:
+            logger.error(f"Error generating response: {str(e)}")
+            # Instead of returning error message, re-raise the exception
+            raise
+
+    def format_price(self, price):
+            """Format price with thousand separators."""
+            return "{:,.0f}".format(float(price))

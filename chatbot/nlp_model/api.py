@@ -39,10 +39,19 @@ class ChatMessage(BaseModel):
     role: str
     parts: str
 
+    def to_dict(self):
+        return {
+            "role": self.role,
+            "parts": self.parts
+        }
+
 
 class ChatRequest(BaseModel):
     message: str
     history: List[ChatMessage] = []
+
+    class Config:
+        arbitrary_types_allowed = True
 
 
 class ChatResponse(BaseModel):
@@ -96,10 +105,12 @@ async def root():
 async def chat(request: ChatRequest):
     try:
         logger.info(f"Received chat request: {request.message}")
-        logger.info(f"Chat history length: {len(request.history)}")
 
         # Process through RAG pipeline
-        result = rag_pipeline.process_query(query=request.message)
+        result = rag_pipeline.process_query(
+            query=request.message,
+            history=[msg.dict() for msg in request.history]
+        )
 
         response = ChatResponse(
             content=result["response"],
@@ -113,9 +124,8 @@ async def chat(request: ChatRequest):
         logger.error(f"Error processing chat request: {str(e)}")
         raise HTTPException(
             status_code=500,
-            detail=str(e)
+            detail="Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại sau."
         )
-
 
 @app.options("/chat")
 async def chat_options():
