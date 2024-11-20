@@ -10,9 +10,9 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const surpriseOptions = [
-    'Tìm cho tôi điện thoại Samsung tầm giá 10 triệu',
-    'So sánh iPhone 14 Pro Max và Samsung Galaxy S23 Ultra',
-    'Điện thoại nào có camera tốt nhất trong tầm giá 15 triệu?',
+    'Macbook Air giá như thế nào?',
+    'Các dòng laptop của Lenovo',
+    'MSI modern có được giảm giá không?',
   ];
 
   const surprise = () => {

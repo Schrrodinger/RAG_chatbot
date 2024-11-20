@@ -21,16 +21,22 @@ class DocumentEncoder:
 
     def encode_query(self, query: str) -> np.ndarray:
         """Encode a single query into an embedding."""
-        return self.model.encode(query, convert_to_tensor=True)
+        query_embedding = self.model.encode(query, convert_to_tensor=True)
+    
+        # Ensure the embedding is flattened if necessary
+        if query_embedding.dim() > 1:
+            query_embedding = query_embedding.squeeze(0)
+
+        return query_embedding
+
 
     def build_index(self, documents: List[str]):
-        """Build FAISS index from documents."""
-        self.documents = documents
         embeddings = self.encode_documents(documents)
+        embedding_array = embeddings.cpu().numpy() if torch.is_tensor(embeddings) else embeddings
 
-        # Initialize FAISS index
-        self.index = faiss.IndexFlatL2(self.dimension)
-        self.index.add(embeddings)
+    # Create FAISS index with the correct dimensions
+        self.index = faiss.IndexFlatL2(embedding_array.shape[1])
+        self.index.add(embedding_array)
 
     def retrieve_similar(self, query: str, k: int = 5) -> List[Tuple[int, float, str]]:
         """Retrieve k most similar documents for a query."""

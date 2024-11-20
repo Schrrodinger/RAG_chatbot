@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import sys
 import os
+import math
 
 # Add parent directory to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -67,33 +68,62 @@ generator = ResponseGenerator()
 rag_pipeline = RAGPipeline(retriever, generator)
 
 
-def load_products():
-    try:
-        products_file = Path(__file__).parent / "sample_products.json"
-        if products_file.exists():
-            with open(products_file, "r", encoding="utf-8") as f:
-                products = json.load(f)
-                logger.info(f"Loaded {len(products)} products successfully")
-                return products
-        else:
-            logger.warning(f"sample_products.json not found at {products_file}")
-            return []
-    except Exception as e:
-        logger.error(f"Error loading products: {str(e)}")
-        return []
+import json
+from pathlib import Path
+import pandas as pd
 
+def sanitize_for_json(data):
+    """Replace non-JSON-compliant values with suitable defaults."""
+    if isinstance(data, dict):
+        return {k: sanitize_for_json(v) for k, v in data.items()}
+    elif isinstance(data, list):
+        return [sanitize_for_json(v) for v in data]
+    elif isinstance(data, float):
+        if math.isnan(data) or math.isinf(data):
+            return 0  # Replace NaN or Infinity with 0 (or any default value)
+    return data
+# Load products, QnAs, and reviews
+def load_products():
+    datasets = {}
+    try:
+        data_folder = Path(__file__).parent 
+        # Load data from CSV file
+        products_df = pd.read_csv(data_folder / "usage_data.csv", encoding="utf-8")
+        
+        # Convert to dictionary for use in downstream processes
+        datasets['products'] = products_df.to_dict(orient='records')
+        return datasets
+    except Exception as e:
+        logger.error(f"Error loading datasets: {str(e)}")
+        return {'products': []}
+
+
+
+
+# Load and index products on startup
+from preprocessing import merge_datasets
 
 # Load and index products on startup
 @app.on_event("startup")
 async def startup_event():
     try:
-        products = load_products()
-        if products:
-            retriever.index_products(products)
-            logger.info(f"Indexed {len(products)} products successfully")
+        datasets = load_products()
+        products = datasets.get('products', [])
+
+        # Merge the datasets (products only in this case)
+        merged_data = merge_datasets(products)
+
+        # Index merged products
+        if merged_data:
+            retriever.index_products(merged_data)
+            logger.info(f"Indexed {len(merged_data)} products successfully")
+        else:
+            logger.error("No products found to index")
     except Exception as e:
         logger.error(f"Error indexing products: {str(e)}")
         raise
+
+
 
 
 @app.get("/")
@@ -112,9 +142,12 @@ async def chat(request: ChatRequest):
             history=[msg.dict() for msg in request.history]
         )
 
+        # Sanitize the response to ensure JSON compliance
+        sanitized_result = sanitize_for_json(result)
+
         response = ChatResponse(
-            content=result["response"],
-            products=result.get("relevant_products", [])[:3]  # Top 3 products
+            content=sanitized_result["response"],
+            products=sanitized_result.get("relevant_products", [])[:3]  # Top 3 products
         )
 
         logger.info("Generated response successfully")
@@ -126,6 +159,7 @@ async def chat(request: ChatRequest):
             status_code=500,
             detail="Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại sau."
         )
+
 
 @app.options("/chat")
 async def chat_options():
