@@ -1,5 +1,7 @@
 from typing import Dict, List
 import logging
+import numpy as np
+import torch
 
 logger = logging.getLogger(__name__)
 
@@ -9,6 +11,12 @@ class RAGPipeline:
         self.retriever = retriever
         self.generator = generator
         logger.info("RAG Pipeline initialized successfully")
+
+    def _ensure_numpy(self, embedding):
+        """Ensure the embedding is a NumPy array."""
+        if torch.is_tensor(embedding):
+            return embedding.cpu().numpy()
+        return embedding
 
     def process_query(self, query: str, history: List[Dict] = None, **kwargs) -> Dict:
         """Process user query through the RAG pipeline."""

@@ -8,9 +8,9 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   const surpriseOptions = [
-    'Tìm cho tôi điện thoại Samsung tầm giá 10 triệu',
-    'So sánh iPhone 14 Pro Max và Samsung Galaxy S23 Ultra',
-    'Điện thoại nào có camera tốt nhất trong tầm giá 15 triệu?',
+    'Giá Macbook như thế nào?',
+    'Các dòng laptop của Acer',
+    'Các dòng máy dưới 20 triệu',
   ];
 
   const surprise = () => {

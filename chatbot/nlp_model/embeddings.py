@@ -1,50 +1,72 @@
 import faiss
-from typing import List, Dict, Tuple
-from sentence_transformers import SentenceTransformer
-from typing import List
-import numpy as np
-from transformers import AutoModel, AutoTokenizer
 import torch
-
+from sentence_transformers import SentenceTransformer
+import numpy as np
+from tqdm import tqdm
+import signal
+import sys
 
 class DocumentEncoder:
     def __init__(self, model_name: str = "keepitreal/vietnamese-sbert"):
-        """Initialize the encoder with a Vietnamese-specific SBERT model."""
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.model = SentenceTransformer(model_name)
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.model = SentenceTransformer(model_name).to(self.device)
+        self.batch_size = 16  # Define batch size for encoding
 
-        self.dimension = self.model.get_sentence_embedding_dimension()
-    def encode_documents(self, documents: List[str]) -> np.ndarray:
-        """Encode a list of documents into embeddings."""
-        return self.model.encode(documents, convert_to_tensor=True)
+    def encode_documents(self, documents: list) -> np.ndarray:
+        """Encode a list of documents in smaller batches."""
+        all_embeddings = []
+        for i in tqdm(range(0, len(documents), self.batch_size)):
+            batch_documents = documents[i:i + self.batch_size]
+            embeddings = self.model.encode(batch_documents, convert_to_tensor=True)
+            if isinstance(embeddings, torch.Tensor):
+                embeddings = embeddings.detach().cpu().numpy()
+            all_embeddings.append(embeddings)
+        return np.vstack(all_embeddings)
 
     def encode_query(self, query: str) -> np.ndarray:
         """Encode a single query into an embedding."""
-        query_embedding = self.model.encode(query, convert_to_tensor=True)
-    
-        # Ensure the embedding is flattened if necessary
-        if query_embedding.dim() > 1:
-            query_embedding = query_embedding.squeeze(0)
-
+        query_embedding = self.model.encode([query], convert_to_tensor=True)
+        if isinstance(query_embedding, torch.Tensor):
+            query_embedding = query_embedding.detach().cpu().numpy()
         return query_embedding
 
+class ProductRetriever:
+    def __init__(self, encoder: DocumentEncoder):
+        self.encoder = encoder
+        self.index = None
+        self.documents = None  # Store documents for later retrieval
 
-    def build_index(self, documents: List[str]):
-        embeddings = self.encode_documents(documents)
-        embedding_array = embeddings.cpu().numpy() if torch.is_tensor(embeddings) else embeddings
+    def index_products(self, products: list):
+        """Index product data for efficient retrieval using an optimized FAISS index."""
+        # Store documents for later use
+        self.documents = products
+        
+        embeddings = self.encoder.encode_documents(products)
 
-    # Create FAISS index with the correct dimensions
-        self.index = faiss.IndexFlatL2(embedding_array.shape[1])
-        self.index.add(embedding_array)
+        # Set up FAISS index with IndexIVFFlat
+        d = embeddings.shape[1]  # Dimensionality of embeddings
+        nlist = 100  # Number of clusters
+        quantizer = faiss.IndexFlatL2(d)  # Quantizer for coarse quantization
+        self.index = faiss.IndexIVFFlat(quantizer, d, nlist, faiss.METRIC_L2)
 
-    def retrieve_similar(self, query: str, k: int = 5) -> List[Tuple[int, float, str]]:
-        """Retrieve k most similar documents for a query."""
-        query_embedding = self.encode_documents([query])
+        # Train the index
+        self.index.train(embeddings)
+        self.index.add(embeddings)
+
+        # Verify the index is populated
+        print(f"Indexed {self.index.ntotal} products.")
+
+    def retrieve_relevant_products(self, query: str, k: int = 5) -> list:
+        """Retrieve relevant products based on query."""
+        if not self.index or self.documents is None:
+            raise ValueError("FAISS index has not been initialized. Call index_products() first.")
+
+        # Encode the query
+        query_embedding = self.encoder.encode_query(query)
+
+        # Perform the search
         distances, indices = self.index.search(query_embedding, k)
+        relevant_products = [self.documents[idx] for idx in indices[0]]
+        return relevant_products
 
-        results = []
-        for idx, distance in zip(indices[0], distances[0]):
-            results.append((idx, distance, self.documents[idx]))
-
-        return results
+# Graceful shutdown handler and example usage remain the same
