@@ -6,7 +6,7 @@ from tqdm import tqdm
 from typing import List, Dict, Any
 from sentence_transformers import SentenceTransformer
 import traceback
-
+from openai import OpenAI
 
 class DocumentEncoder:
     def __init__(self, model_name: str = "keepitreal/vietnamese-sbert"):
@@ -16,6 +16,20 @@ class DocumentEncoder:
         self.index = None
         self.products = None
         self.embeddings = None
+
+        # Initialize OpenAI client for LLM responses
+        self.openai_client = OpenAI(
+            api_key="EMPTY",  # Use proper API key if available
+            base_url="https://de8d-103-63-123-181.ngrok-free.app/v1/"
+        )
+        self.model_id = "/home/toandd2/Downloads/Qwen2.5-0.5B-Instruct"
+        self.json_schema = {
+            "type": "object",
+            "properties": {
+                "Answer": {"type": "string"},
+            },
+            "required": ["Answer"]
+        }
 
     def encode_documents(self, documents: List[str]) -> np.ndarray:
         """Encode documents in batches."""

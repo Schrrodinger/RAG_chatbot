@@ -155,25 +155,42 @@ class ResponseGenerator:
             return []
 
     def generate_response(self, query, relevant_products, conversation_history=None):
-        """Generate response based on the query and relevant products."""
+    
         try:
             if not relevant_products:
-                return "Xin lỗi, chúng tôi không tìm thấy sản phẩm phù hợp với tìm kiếm của bạn"
+                return "Xin lỗi, chúng tôi không tìm thấy sản phẩm phù hợp với tìm kiếm của bạn."
 
-            response = [f"Dựa vào tìm kiếm '{query}', đây là các sản phẩm phù hợp:"]
+        # Build the response with a clear and concise introduction
+            response = [f"Dưới đây là các sản phẩm phù hợp với yêu cầu '{query}':"]
+
+        # Add product information, making sure each product listing is unique
             for product in relevant_products:
                 product_info = [f"\n• {product['name']}"]
+
                 if 'price' in product:
                     product_info.append(f"  - Giá: {self.format_price(product['price'])}đ")
-                if 'usage' in product:  # Assuming 'usage' is a column in usage_data.csv
-                    product_info.append(f"  - Sử dụng: {product['usage']}")
-                response.append("\n".join(product_info))
+                if 'specifications' in product:
+                    specs = product['specifications']
+                    product_info.append("  - Thông số kỹ thuật chính:")
+                    for key, value in specs.items():
+                        product_info.append(f"    + {key}: {value}")
+                if 'promotions' in product and product['promotions']:
+                    product_info.append("  - Khuyến mãi:")
+                    for promo in product['promotions']:
+                        product_info.append(f"    + {promo}")
 
-            return "\n".join(response)
+            # Append product information to the response
+                response.extend(product_info)
+
+        # Join all parts of the response
+            final_response = "\n".join(response)
+
+            return final_response
 
         except Exception as e:
             logger.error(f"Error generating response: {str(e)}")
             raise
+
 
 
     def format_price(self, price):
