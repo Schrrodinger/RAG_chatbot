@@ -1,0 +1,505 @@
+{
+  "total_products": 50,
+  "accuracy_results": [
+    {
+      "query_product": "Quần jean nam đen mới nhất",
+      "top_similar_products": [
+        "Quần jean nam xanh đậm mới nhất",
+        "Quần jean nam đen",
+        "Quần jean nam đen cao cấp",
+        "Quần jean nam đen giá rẻ",
+        "Quần jean nam xanh đậm"
+      ]
+    },
+    {
+      "query_product": "Dây nịt nam da mới nhất",
+      "top_similar_products": [
+        "Dây nịt nam da cao cấp",
+        "Áo sơ mi nam đen",
+        "Áo sơ mi nam đen phong cách",
+        "Áo sơ mi nam trắng phong cách",
+        "Mũ lưỡi trai nam"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam tay ngắn mới nhất",
+      "top_similar_products": [
+        "Áo thun nam tay ngắn cao cấp",
+        "Áo thun nam tay ngắn giá rẻ",
+        "Áo thun nam cổ tròn mới nhất",
+        "Áo thun nam cổ tròn",
+        "Áo thun nam màu đen mới nhất"
+      ]
+    },
+    {
+      "query_product": "Giày thể thao nam Nike mới nhất",
+      "top_similar_products": [
+        "Giày thể thao nam Adidas mới nhất",
+        "Giày thể thao nam Nike cao cấp",
+        "Giày thể thao nam Nike giá rẻ",
+        "Giày thể thao nam Nike phong cách",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Áo len nam cao cấp",
+      "top_similar_products": [
+        "Áo len nam",
+        "Áo sơ mi nam đen mới nhất",
+        "Áo thun nam màu đen cao cấp",
+        "Áo thun nam cổ tròn cao cấp",
+        "Áo thun nam màu đen"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam cổ tròn cao cấp",
+      "top_similar_products": [
+        "Áo thun nam cổ tròn",
+        "Áo thun nam cổ tròn phong cách",
+        "Áo thun nam cổ tròn mới nhất",
+        "Áo thun nam tay ngắn cao cấp",
+        "Áo thun nam cổ tròn giá rẻ"
+      ]
+    },
+    {
+      "query_product": "Quần jean nam xanh đậm cao cấp",
+      "top_similar_products": [
+        "Quần jean nam xanh đậm",
+        "Quần jean nam xanh đậm phong cách",
+        "Quần jean nam xanh đậm mới nhất",
+        "Quần jean nam đen cao cấp",
+        "Quần jean nam đen mới nhất"
+      ]
+    },
+    {
+      "query_product": "Nồi cơm điện",
+      "top_similar_products": [
+        "Bếp từ",
+        "Bàn học sinh",
+        "Mũ lưỡi trai nam",
+        "Vớ nam cao cấp",
+        "Vớ nam mới nhất"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam cổ tròn",
+      "top_similar_products": [
+        "Áo thun nam cổ tròn mới nhất",
+        "Áo thun nam cổ tròn cao cấp",
+        "Áo thun nam cổ tròn phong cách",
+        "Áo thun nam cổ tròn giá rẻ",
+        "Áo thun nam tay ngắn mới nhất"
+      ]
+    },
+    {
+      "query_product": "Mũ lưỡi trai nam",
+      "top_similar_products": [
+        "Mũ lưỡi trai nam cao cấp",
+        "Áo sơ mi nam đen",
+        "Áo sơ mi nam đen phong cách",
+        "Vớ nam cao cấp",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Bếp từ",
+      "top_similar_products": [
+        "Nồi cơm điện",
+        "Bàn học sinh",
+        "Vớ nam mới nhất",
+        "Vớ nam cao cấp",
+        "Mũ lưỡi trai nam"
+      ]
+    },
+    {
+      "query_product": "Áo khoác gió nam phong cách",
+      "top_similar_products": [
+        "Áo sơ mi nam trắng phong cách",
+        "Áo sơ mi nam đen phong cách",
+        "Vớ nam phong cách",
+        "Áo sơ mi nam đen",
+        "Vớ nam cao cấp"
+      ]
+    },
+    {
+      "query_product": "Mũ lưỡi trai nam cao cấp",
+      "top_similar_products": [
+        "Mũ lưỡi trai nam",
+        "Vớ nam cao cấp",
+        "Dây nịt nam da cao cấp",
+        "Áo sơ mi nam đen phong cách",
+        "Áo sơ mi nam đen"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam tay ngắn cao cấp",
+      "top_similar_products": [
+        "Áo thun nam tay ngắn mới nhất",
+        "Áo thun nam tay ngắn giá rẻ",
+        "Áo thun nam cổ tròn cao cấp",
+        "Áo thun nam cổ tròn",
+        "Áo thun nam cổ tròn phong cách"
+      ]
+    },
+    {
+      "query_product": "Giày thể thao nam Nike cao cấp",
+      "top_similar_products": [
+        "Giày thể thao nam Nike phong cách",
+        "Giày thể thao nam Nike mới nhất",
+        "Giày thể thao nam Nike giá rẻ",
+        "Giày thể thao nam Adidas mới nhất",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam màu đen",
+      "top_similar_products": [
+        "Áo thun nam màu đen mới nhất",
+        "Áo thun nam màu đen cao cấp",
+        "Áo thun nam cổ tròn",
+        "Áo thun nam tay ngắn mới nhất",
+        "Áo thun nam cổ tròn mới nhất"
+      ]
+    },
+    {
+      "query_product": "Vớ nam mới nhất",
+      "top_similar_products": [
+        "Vớ nam cao cấp",
+        "Vớ nam phong cách",
+        "Áo khoác gió nam phong cách",
+        "Dây nịt nam da mới nhất",
+        "Mũ lưỡi trai nam"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam màu trắng giá rẻ",
+      "top_similar_products": [
+        "Áo thun nam tay ngắn giá rẻ",
+        "Áo thun nam cổ tròn giá rẻ",
+        "Áo thun nam tay ngắn mới nhất",
+        "Áo thun nam màu đen",
+        "Áo thun nam cổ tròn"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam màu đen mới nhất",
+      "top_similar_products": [
+        "Áo thun nam màu đen",
+        "Áo thun nam màu đen cao cấp",
+        "Áo thun nam tay ngắn mới nhất",
+        "Áo thun nam cổ tròn mới nhất",
+        "Áo sơ mi nam đen mới nhất"
+      ]
+    },
+    {
+      "query_product": "Áo len nam",
+      "top_similar_products": [
+        "Áo len nam cao cấp",
+        "Áo thun nam màu đen",
+        "Áo thun nam cổ tròn",
+        "Áo sơ mi nam đen mới nhất",
+        "Áo thun nam màu đen mới nhất"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam màu đen cao cấp",
+      "top_similar_products": [
+        "Áo thun nam màu đen",
+        "Áo thun nam màu đen mới nhất",
+        "Áo sơ mi nam đen mới nhất",
+        "Áo thun nam cổ tròn cao cấp",
+        "Áo thun nam tay ngắn cao cấp"
+      ]
+    },
+    {
+      "query_product": "Áo sơ mi nam đen mới nhất",
+      "top_similar_products": [
+        "Áo thun nam màu đen mới nhất",
+        "Áo thun nam màu đen cao cấp",
+        "Áo thun nam màu đen",
+        "Áo thun nam tay ngắn mới nhất",
+        "Áo thun nam tay ngắn cao cấp"
+      ]
+    },
+    {
+      "query_product": "Áo sơ mi nam trắng phong cách",
+      "top_similar_products": [
+        "Áo sơ mi nam đen phong cách",
+        "Áo sơ mi nam đen",
+        "Áo khoác gió nam phong cách",
+        "Vớ nam phong cách",
+        "Vớ nam cao cấp"
+      ]
+    },
+    {
+      "query_product": "Quần jean nam xanh đậm mới nhất",
+      "top_similar_products": [
+        "Quần jean nam xanh đậm",
+        "Quần jean nam xanh đậm cao cấp",
+        "Quần jean nam đen mới nhất",
+        "Quần jean nam xanh đậm phong cách",
+        "Quần jean nam đen cao cấp"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam cổ tròn giá rẻ",
+      "top_similar_products": [
+        "Áo thun nam tay ngắn giá rẻ",
+        "Áo thun nam màu trắng giá rẻ",
+        "Áo thun nam cổ tròn",
+        "Áo thun nam cổ tròn mới nhất",
+        "Áo thun nam cổ tròn cao cấp"
+      ]
+    },
+    {
+      "query_product": "Vớ nam phong cách",
+      "top_similar_products": [
+        "Vớ nam cao cấp",
+        "Áo khoác gió nam phong cách",
+        "Áo sơ mi nam trắng phong cách",
+        "Áo sơ mi nam đen phong cách",
+        "Vớ nam mới nhất"
+      ]
+    },
+    {
+      "query_product": "Giày thể thao nam Nike giá rẻ",
+      "top_similar_products": [
+        "Giày thể thao nam Nike mới nhất",
+        "Giày thể thao nam Nike cao cấp",
+        "Giày thể thao nam Nike phong cách",
+        "Giày thể thao nam Adidas mới nhất",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Bàn học sinh",
+      "top_similar_products": [
+        "Bếp từ",
+        "Nồi cơm điện",
+        "Áo sơ mi nam đen",
+        "Vớ nam phong cách",
+        "Vớ nam mới nhất"
+      ]
+    },
+    {
+      "query_product": "Quần jean nam xanh đậm",
+      "top_similar_products": [
+        "Quần jean nam xanh đậm cao cấp",
+        "Quần jean nam xanh đậm mới nhất",
+        "Quần jean nam xanh đậm phong cách",
+        "Quần jean nam đen",
+        "Quần jean nam đen cao cấp"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam cổ tròn phong cách",
+      "top_similar_products": [
+        "Áo thun nam cổ tròn cao cấp",
+        "Áo thun nam cổ tròn",
+        "Áo thun nam cổ tròn mới nhất",
+        "Áo thun nam tay ngắn cao cấp",
+        "Áo thun nam cổ tròn giá rẻ"
+      ]
+    },
+    {
+      "query_product": "Máy lọc nước",
+      "top_similar_products": [
+        "Kính mát nam",
+        "Áo khoác gió nam giá rẻ",
+        "Đồng hồ nam giá rẻ",
+        "Túi đeo chéo nam giá rẻ",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Giày thể thao nam Nike phong cách",
+      "top_similar_products": [
+        "Giày thể thao nam Nike cao cấp",
+        "Giày thể thao nam Nike mới nhất",
+        "Giày thể thao nam Nike giá rẻ",
+        "Giày thể thao nam Adidas mới nhất",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Túi đeo chéo nam giá rẻ",
+      "top_similar_products": [
+        "Áo khoác gió nam giá rẻ",
+        "Đồng hồ nam giá rẻ",
+        "Kính mát nam",
+        "Máy lọc nước",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Giày thể thao nam Adidas mới nhất",
+      "top_similar_products": [
+        "Giày thể thao nam Nike mới nhất",
+        "Giày thể thao nam Nike cao cấp",
+        "Giày thể thao nam Nike giá rẻ",
+        "Giày thể thao nam Nike phong cách",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Quần short nam",
+      "top_similar_products": [
+        "Quần short nam giá rẻ",
+        "Quần jean nam đen",
+        "Quần jean nam đen mới nhất",
+        "Quần jean nam đen giá rẻ",
+        "Quần jean nam xanh đậm"
+      ]
+    },
+    {
+      "query_product": "Áo sơ mi nam đen",
+      "top_similar_products": [
+        "Áo sơ mi nam đen phong cách",
+        "Áo sơ mi nam trắng phong cách",
+        "Áo khoác gió nam phong cách",
+        "Dây nịt nam da cao cấp",
+        "Dây nịt nam da mới nhất"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam cổ tròn mới nhất",
+      "top_similar_products": [
+        "Áo thun nam cổ tròn",
+        "Áo thun nam cổ tròn cao cấp",
+        "Áo thun nam tay ngắn mới nhất",
+        "Áo thun nam cổ tròn giá rẻ",
+        "Áo thun nam cổ tròn phong cách"
+      ]
+    },
+    {
+      "query_product": "Áo thun nam tay ngắn giá rẻ",
+      "top_similar_products": [
+        "Áo thun nam cổ tròn giá rẻ",
+        "Áo thun nam màu trắng giá rẻ",
+        "Áo thun nam tay ngắn mới nhất",
+        "Áo thun nam tay ngắn cao cấp",
+        "Áo thun nam cổ tròn"
+      ]
+    },
+    {
+      "query_product": "Kính mát nam",
+      "top_similar_products": [
+        "Áo khoác gió nam giá rẻ",
+        "Túi đeo chéo nam giá rẻ",
+        "Máy lọc nước",
+        "Đồng hồ nam giá rẻ",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Quần jean nam skinny phong cách",
+      "top_similar_products": [
+        "Quần jean nam đen cao cấp",
+        "Quần jean nam xanh đậm phong cách",
+        "Quần jean nam đen",
+        "Quần jean nam đen mới nhất",
+        "Quần jean nam xanh đậm cao cấp"
+      ]
+    },
+    {
+      "query_product": "Quần jean nam đen",
+      "top_similar_products": [
+        "Quần jean nam đen cao cấp",
+        "Quần jean nam đen mới nhất",
+        "Quần jean nam xanh đậm",
+        "Quần jean nam đen giá rẻ",
+        "Quần jean nam xanh đậm mới nhất"
+      ]
+    },
+    {
+      "query_product": "Vớ nam cao cấp",
+      "top_similar_products": [
+        "Vớ nam phong cách",
+        "Vớ nam mới nhất",
+        "Dây nịt nam da cao cấp",
+        "Áo sơ mi nam đen phong cách",
+        "Mũ lưỡi trai nam cao cấp"
+      ]
+    },
+    {
+      "query_product": "Áo sơ mi nam đen phong cách",
+      "top_similar_products": [
+        "Áo sơ mi nam trắng phong cách",
+        "Áo sơ mi nam đen",
+        "Áo khoác gió nam phong cách",
+        "Vớ nam phong cách",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Quần jean nam đen giá rẻ",
+      "top_similar_products": [
+        "Quần short nam giá rẻ",
+        "Quần jean nam đen mới nhất",
+        "Quần jean nam đen",
+        "Quần jean nam đen cao cấp",
+        "Quần jean nam xanh đậm mới nhất"
+      ]
+    },
+    {
+      "query_product": "Đồng hồ nam giá rẻ",
+      "top_similar_products": [
+        "Áo khoác gió nam giá rẻ",
+        "Túi đeo chéo nam giá rẻ",
+        "Kính mát nam",
+        "Máy lọc nước",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Quần jean nam xanh đậm phong cách",
+      "top_similar_products": [
+        "Quần jean nam xanh đậm cao cấp",
+        "Quần jean nam xanh đậm",
+        "Quần jean nam xanh đậm mới nhất",
+        "Quần jean nam skinny phong cách",
+        "Quần jean nam đen cao cấp"
+      ]
+    },
+    {
+      "query_product": "Quần short nam giá rẻ",
+      "top_similar_products": [
+        "Quần jean nam đen giá rẻ",
+        "Quần short nam",
+        "Quần jean nam đen mới nhất",
+        "Quần jean nam xanh đậm mới nhất",
+        "Quần jean nam xanh đậm"
+      ]
+    },
+    {
+      "query_product": "Quần jean nam đen cao cấp",
+      "top_similar_products": [
+        "Quần jean nam đen",
+        "Quần jean nam đen mới nhất",
+        "Quần jean nam xanh đậm cao cấp",
+        "Quần jean nam xanh đậm",
+        "Quần jean nam skinny phong cách"
+      ]
+    },
+    {
+      "query_product": "Áo khoác gió nam giá rẻ",
+      "top_similar_products": [
+        "Túi đeo chéo nam giá rẻ",
+        "Đồng hồ nam giá rẻ",
+        "Kính mát nam",
+        "Máy lọc nước",
+        "Dây nịt nam da cao cấp"
+      ]
+    },
+    {
+      "query_product": "Dây nịt nam da cao cấp",
+      "top_similar_products": [
+        "Dây nịt nam da mới nhất",
+        "Áo sơ mi nam đen phong cách",
+        "Vớ nam cao cấp",
+        "Áo sơ mi nam đen",
+        "Mũ lưỡi trai nam cao cấp"
+      ]
+    }
+  ]
+}
