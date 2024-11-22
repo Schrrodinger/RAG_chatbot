@@ -2,7 +2,7 @@ import numpy as np
 from typing import List, Dict, Union
 import logging
 import torch
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoTokenizer, AutoModel, AutoModelForCausalLM, BitsAndBytesConfig
 from tqdm import tqdm
 
 # Configure logging
@@ -11,23 +11,27 @@ logger = logging.getLogger(__name__)
 
 
 class ResponseGenerator:
-    def __init__(self, model_name: str = "vinai/phobert-base"):
-        """
-        Initialize with PhoBERT base model for Vietnamese text encoding.
-        """
+    def __init__(self, model_name="Qwen/Qwen2-1.5B"):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        logger.info(f"Using device: {self.device}")
+
+        # Quantization configuration
+        quantization_config = BitsAndBytesConfig(load_in_8bit=True, device_map="auto")
 
         try:
-            logger.info(f"Loading model: {model_name}")
-            self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-            self.model = AutoModel.from_pretrained(model_name)
-            self.model.to(self.device)
-            self.model.eval()
-            logger.info("Model loaded successfully")
-        except Exception as e:
-            logger.error(f"Error loading model: {str(e)}")
-            self._use_fallback_model()
+            print(f"Attempting to load the model on {self.device}...")
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_auth_token=True)
+            self.model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                trust_remote_code=True,
+                use_auth_token="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",
+                quantization_config=quantization_config
+            )
+            print(f"Model loaded successfully on {self.device}.")
+        except RuntimeError as e:
+            print(f"CUDA Error: {e}. Falling back to CPU...")
+            self.device = "cpu"
+            self.model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, use_auth_token=True).to(self.device)
+            print("Model loaded successfully on CPU.")
 
     def _use_fallback_model(self):
         """Use smaller model as fallback."""
@@ -160,22 +164,21 @@ class ResponseGenerator:
             if not relevant_products:
                 return "Xin lỗi, chúng tôi không tìm thấy sản phẩm phù hợp với tìm kiếm của bạn"
 
-            response = [f"Dựa vào tìm kiếm '{query}', đây là các sản phẩm phù hợp:"]
-            for product in relevant_products:
-                product_info = [f"\n• {product['name']}"]
-                if 'price' in product:
-                    product_info.append(f"  - Giá: {self.format_price(product['price'])}đ")
-                if 'usage' in product:  # Assuming 'usage' is a column in usage_data.csv
-                    product_info.append(f"  - Sử dụng: {product['usage']}")
-                response.append("\n".join(product_info))
-
-            return "\n".join(response)
+            input_text = f"Query: {query}\nRelevant Products: {relevant_products}"
+            inputs = self.tokenizer(input_text, return_tensors="pt").to(self.device)
+            outputs = self.model.generate(inputs["input_ids"], max_length=150, num_return_sequences=1)
+            return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
         except Exception as e:
             logger.error(f"Error generating response: {str(e)}")
             raise
-
+    def get_query_embedding(self, query):
+        inputs = self.tokenizer(query, return_tensors="pt", truncation=True).to(self.device)
+        with torch.no_grad():
+            outputs = self.model(**inputs, output_hidden_states=True)
+        hidden_states = outputs.hidden_states[-1]
+        return hidden_states.mean(dim=1).cpu().numpy() 
 
     def format_price(self, price):
-            """Format price with thousand separators."""
-            return "{:,.0f}".format(float(price))
+        """Format price with thousand separators."""
+        return "{:,.0f}".format(float(price))

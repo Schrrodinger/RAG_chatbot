@@ -7,6 +7,7 @@ import re
 import string
 import logging
 import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 from utils import sanitize_for_json
 
 # Initialize the logger
@@ -101,3 +102,36 @@ class ProductRetriever:
                 relevant_products.append(self.product_data[idx])
 
         return relevant_products
+
+    def re_rank_with_qwen(self, query: str, retrieved_products: List[Dict]) -> List[Dict]:
+        """
+        Re-rank retrieved products using Qwen embeddings.
+
+        Args:
+        - query (str): User query string.
+        - retrieved_products (List[Dict]): List of products retrieved from FAISS.
+
+        Returns:
+        - List[Dict]: Re-ranked list of products.
+        """
+        if not retrieved_products:
+            return []
+
+        # Get query embedding using Qwen
+        query_embedding = self.encoder.encode_query(query)
+        query_embedding = self._ensure_numpy(query_embedding)
+
+        # Get embeddings for product descriptions
+        product_embeddings = [
+            self.encoder.encode_query(product["description"]) for product in retrieved_products
+        ]
+        product_embeddings = np.array([self._ensure_numpy(embedding) for embedding in product_embeddings])
+
+        # Re-rank products using cosine similarity
+        re_ranked = sorted(
+            zip(retrieved_products, product_embeddings),
+            key=lambda x: cosine_similarity(query_embedding.reshape(1, -1), x[1].reshape(1, -1))[0][0],
+            reverse=True
+        )
+
+        return [item[0] for item in re_ranked]

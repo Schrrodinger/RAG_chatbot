@@ -2,6 +2,7 @@ from typing import Dict, List
 import logging
 import numpy as np
 import torch
+from sklearn.metrics.pairwise import cosine_similarity
 
 logger = logging.getLogger(__name__)
 
@@ -18,32 +19,70 @@ class RAGPipeline:
             return embedding.cpu().numpy()
         return embedding
 
-    def process_query(self, query: str, history: List[Dict] = None, **kwargs) -> Dict:
-        """Process user query through the RAG pipeline."""
-        try:
-            # Retrieve relevant products
-            relevant_products = self.retriever.retrieve_relevant_products(query)
-            logger.info(f"Retrieved {len(relevant_products)} relevant products")
+    def improve_retrieval_with_qwen(self, query_embedding, document_embeddings):
+        """
+        Improve retrieval by re-ranking using Qwen2-1.5B embeddings.
 
-            # Generate response
-            response = self.generator.generate_response(
+        Args:
+        - query_embedding (numpy.ndarray): Embedding for the query.
+        - document_embeddings (numpy.ndarray): Embeddings for all documents/products.
+
+        Returns:
+        - List[int]: Sorted indices of documents based on relevance.
+        """
+        # Compute cosine similarity
+        cosine_scores = cosine_similarity(query_embedding.reshape(1, -1), document_embeddings)
+        sorted_indices = np.argsort(-cosine_scores[0])  # Descending order of scores
+        return sorted_indices
+
+
+    def process_query(self, query: str, history: List[Dict] = None, **kwargs) -> Dict:
+        """
+        Process user query through the RAG pipeline using improved retrieval and Qwen2-1.5B for response generation.
+        """
+        try:
+        # Get query embedding
+            inputs = self.generator.tokenizer(query, return_tensors="pt", truncation=True).to(self.generator.device)
+
+        # Forward pass through the model, requesting hidden states
+            with torch.no_grad():
+                outputs = self.generator.model(**inputs, output_hidden_states=True)
+
+        # Extract the last hidden state and compute the mean for the embedding
+            hidden_states = outputs.hidden_states[-1]  # Get the last layer hidden states
+            query_embedding = hidden_states.mean(dim=1).cpu().numpy()  # Average pooling over tokens
+
+        # Get document embeddings
+            document_embeddings = np.array(
+                [self._ensure_numpy(self.retriever.get_embedding(product)) for product in self.retriever.product_data]
+        )
+
+        # Re-rank documents using Qwen embeddings
+            ranked_indices = self.improve_retrieval_with_qwen(query_embedding, document_embeddings)
+            relevant_products = [self.retriever.product_data[i] for i in ranked_indices[:5]]
+
+        # Generate response
+            response = self.generator.generate_response_with_qwen(
                 query=query,
                 relevant_products=relevant_products,
-                conversation_history=history
-            )
+                conversation_history=history or []
+        )
 
             return {
-                'response': response,
-                'relevant_products': relevant_products,
-                'query': query
-            }
+                "response": response,
+                "relevant_products": relevant_products,
+                "query": query,
+        }
 
         except Exception as e:
             logger.error(f"Error in RAG pipeline: {str(e)}")
             raise
 
+
     def compare_products(self, product_ids: List[int]) -> Dict:
-        """Compare multiple products by their IDs."""
+        """
+        Compare multiple products by their IDs.
+        """
         try:
             comparison = []
             for product_id in product_ids:
@@ -63,7 +102,9 @@ class RAGPipeline:
             raise
 
     def get_recommendations(self, budget: float, preferences: str) -> Dict:
-        """Provide product recommendations based on a budget and preferences."""
+        """
+        Provide product recommendations based on a budget and preferences.
+        """
         try:
             relevant_products = []
             for product in self.retriever.product_data:

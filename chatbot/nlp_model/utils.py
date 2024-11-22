@@ -1,4 +1,5 @@
 import math
+import re
 
 def sanitize_for_json(data):
     if isinstance(data, dict):
@@ -9,3 +10,8 @@ def sanitize_for_json(data):
         if math.isnan(data) or math.isinf(data):
             return 0
     return data
+
+def preprocess_for_qwen(query):
+    query = query.lower().strip()
+    query = re.sub(r"[^\w\s]", "", query)
+    return query
