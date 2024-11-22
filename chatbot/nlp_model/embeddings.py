@@ -69,18 +69,7 @@ class DocumentEncoder:
         return result
 
     def search(self, query: str, top_k: int = 5, expected_top: int = 3) -> List[str]:
-        """
-        Perform enhanced semantic search, ensuring more precision for top-k results.
-        Specifically enhances the expected_top by including products similar to top-1.
         
-        Args:
-            query (str): The query string to search for.
-            top_k (int): Number of top results to return. Default is 5.
-            expected_top (int): Number of expected top results to focus on refining for accuracy.
-        
-        Returns:
-            List[str]: List of top-k products.
-        """
         if self.index is None or self.products is None:
             raise ValueError("Index not initialized. Call generate_embeddings first.")
 
@@ -133,7 +122,6 @@ class DocumentEncoder:
         self.create_faiss_index(self.embeddings)
 
     def calculate_precision(self, top_k: int = 3) -> Dict[str, Any]:
-        """Calculate Precision."""
         precisions = []
 
         for i, query_product in enumerate(self.products):
@@ -153,7 +141,7 @@ class DocumentEncoder:
             )
 
             # Calculate precision
-            precision = matches / top_k
+            precision = matches / len(similar_products)
             precisions.append(precision)
 
         return {
