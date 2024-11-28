@@ -135,33 +135,81 @@ class DocumentEncoder:
         self.embeddings = self.encode_documents(products)
         self.create_faiss_index(self.embeddings)
 
+    # def calculate_precision(self, top_k: int = 3) -> Dict[str, Any]:
+    #     precisions = []
+
+    #     for i, query_product in enumerate(self.products):
+    #         # Search for top_k+1 to exclude the exact match
+    #         distances, indices = self.index.search(self.embeddings[i:i + 1], top_k + 1)
+
+    #         # Exclude the first result (exact match)
+    #         similar_products = [self.products[int(idx)] for idx in indices[0][1:]]
+
+    #         # Determine the base category
+    #         base_category = self._extract_base_category(query_product)
+
+    #         # Count number of products in the same category
+    #         matches = sum(
+    #             1 for prod in similar_products
+    #             if self._extract_base_category(prod) == base_category
+    #         )
+
+    #         # Calculate precision
+    #         precision = matches / len(similar_products)
+    #         precisions.append(precision)
+
+    #     return {
+    #         f'Precision@{top_k}': np.mean(precisions),
+    #         'Individual Precisions': precisions
+    #     }
+
     def calculate_precision(self, top_k: int = 3) -> Dict[str, Any]:
-        precisions = []
+        """
+    Calculate Precision, Recall, and F1-Score for top-k retrieved products.
+
+    Returns:
+        Dict: Precision@k, Recall@k, and F1-Score@k.
+    """
+        precisions, recalls, f1_scores = [], [], []
 
         for i, query_product in enumerate(self.products):
-            # Search for top_k+1 to exclude the exact match
+        # Search for top_k+1 to exclude the exact match
             distances, indices = self.index.search(self.embeddings[i:i + 1], top_k + 1)
 
-            # Exclude the first result (exact match)
+        # Exclude the first result (exact match)
             similar_products = [self.products[int(idx)] for idx in indices[0][1:]]
 
-            # Determine the base category
+        # Determine the base category
             base_category = self._extract_base_category(query_product)
 
-            # Count number of products in the same category
+        # Count the relevant products in retrieved results
             matches = sum(
                 1 for prod in similar_products
                 if self._extract_base_category(prod) == base_category
-            )
+        )
+            total_relevant = sum(
+                1 for prod in self.products
+                if self._extract_base_category(prod) == base_category
+        )
 
-            # Calculate precision
-            precision = matches / len(similar_products)
+        # Calculate precision, recall, and F1-score
+            precision = matches / len(similar_products) if similar_products else 0
+            recall = matches / total_relevant if total_relevant else 0
+            f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0
+
             precisions.append(precision)
+            recalls.append(recall)
+            f1_scores.append(f1)
 
         return {
             f'Precision@{top_k}': np.mean(precisions),
-            'Individual Precisions': precisions
-        }
+            f'Recall@{top_k}': np.mean(recalls),
+            f'F1-Score@{top_k}': np.mean(f1_scores),
+            'Individual Precisions': precisions,
+            'Individual Recalls': recalls,
+            'Individual F1-Scores': f1_scores
+    }
+
 
     def _extract_base_category(self, product: str) -> str:
         """Extract the base category."""
@@ -233,13 +281,21 @@ def main():
     # Load data
     search_engine.load_data(test_products)
 
-    # Calculate Precision
-    precision_1 = search_engine.calculate_precision(top_k=1)
-    precision_3 = search_engine.calculate_precision(top_k=3)
+    # Calculate metrics
+    metrics_1 = search_engine.calculate_precision(top_k=1)
+    metrics_3 = search_engine.calculate_precision(top_k=3)
 
-    # Print results
-    print("Precision@1:", precision_1['Precision@1'])
-    print("Precision@3:", precision_3['Precision@3'])
+    # Print metrics for top_k = 1
+    print("\nMetrics@1:")
+    print(f"Precision@1: {metrics_1['Precision@1']}")
+    print(f"Recall@1: {metrics_1['Recall@1']}")
+    print(f"F1-Score@1: {metrics_1['F1-Score@1']}")
+
+    # Print metrics for top_k = 3
+    print("\nMetrics@3:")
+    print(f"Precision@3: {metrics_3['Precision@3']}")
+    print(f"Recall@3: {metrics_3['Recall@3']}")
+    print(f"F1-Score@3: {metrics_3['F1-Score@3']}")
 
     # Example search
     print("\nExample Search:")
